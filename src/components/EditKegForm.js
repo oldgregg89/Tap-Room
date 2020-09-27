@@ -6,7 +6,7 @@ function EditKegForm(props){
   const {keg} = props;
   function handleEditKegFormSubmission(event){
     event.preventDefault();
-    props.onEditKeg({names: event.target.names.value, abv: event.target.abv.value, type: event.target.type.value, price: event.target.price.value, brewer: event.target.brewer.value, id: keg.id});
+    props.onEditKeg({name: event.target.name.value, abv: event.target.abv.value, type: event.target.type.value, price: event.target.price.value, brewer: event.target.brewer.value, id: keg.id});
   }
 
   return (

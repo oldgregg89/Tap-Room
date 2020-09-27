@@ -22,8 +22,14 @@ class KegControl extends React.Component {
     this.setState({editing: true});
   }
 
-  handleRemovingPint = () => {
-    this.forceUpdate();
+  handlePintRemove = (kegToEdit) => {
+    const editedMasterKegList = this.state.masterKegList
+      .filter(keg=>keg.id !== this.state.selectedKeg.id)
+      .concat(kegToEdit);
+    this.setState({
+      masterKegList: editedMasterKegList,
+      selectedKeg: null
+    });
   }
 
   handleChangingSelectedKeg = (id) => {
@@ -83,7 +89,7 @@ class KegControl extends React.Component {
     } else if (this.state.selectedKeg != null) {
         currentlyVisibleState = <KegDetail 
           keg = {this.state.selectedKeg} 
-          onSellingPint = {this.handleRemovingPint}
+          onSellingPint = {this.handlePintRemove}
           onClickingDelete = {this.handleDeletingKeg} 
           onClickingEdit = {this.handleEditClick} />
         buttonText = "Return to Keg List";

@@ -5,21 +5,22 @@ import Button from "react-bootstrap/Button";
 
 
 function KegDetail(props){
+  const { keg, onClickingDelete } = props;
+
   function handleRemovePint(){
     if (keg.pintsLeft === 0){
-      props.onSellingPint(keg.pintsLeft = 0)
+      props.onSellingPint({name: keg.name, abv: keg.abv, price: keg.price,brewer: keg.brewer,type: keg.type,pintsLeft: keg.pintsLeft,id: keg.id})
     }
     else {
-      props.onSellingPint(keg.pintsLeft --)
+      props.onSellingPint({name: keg.name, abv: keg.abv, price: keg.price,brewer: keg.brewer,type: keg.type,pintsLeft: keg.pintsLeft-1,id: keg.id})
     }
-    
   }
-  const { keg, onClickingDelete } = props;
+  
 
   return (
     <React.Fragment>
       <h1>Keg Details</h1>
-      <h3>Name: {keg.names}</h3>
+      <h3>Name: {keg.name}</h3>
       <p><em>Keg Alcohol Body Volume (abv):{keg.abv}%</em></p>
       <p><em>Type of Beer:{keg.type}</em></p>
       <p><em>Price: ${keg.price}</em></p>
