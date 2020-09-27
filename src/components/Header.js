@@ -9,7 +9,7 @@ function Header(props) {
       <Navbar.Brand href = "#home"><h1>Tree Beards Tap House</h1></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
-        <Nav class ="mr-auto">
+        <Nav className ="mr-auto">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Kegs</Nav.Link>
           <NavDropdown title="Dropdown" id="basic-navbar-nav">
